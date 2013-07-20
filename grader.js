@@ -83,12 +83,8 @@ if(require.main == module) {
 	.option('-c, --checks <check_file>', 'Path to checks.json', clone(assertFileExists), CHECKSFILE_DEFAULT)
 	.parse(process.argv);
     if(program.url) {
-        console.log("OPTION URL");
-	console.log("program.url: " + program.url);
 	checkUrl(program.url, program.checks);
     } else {
-	console.log("OPTION FILE");
-	console.log("program.file: " + program.file);
         var checkJson = checkHtmlFile(program.file, program.checks);
 	var outJson = JSON.stringify(checkJson, null, 4);
 	console.log(outJson);
